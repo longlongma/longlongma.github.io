@@ -50,7 +50,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -83,11 +83,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h5 id="1、问题"><a href="#1、问题" class="headerlink" title="1、问题"></a>1、问题</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Error: Module &apos;C:\Users\angelama\Desktop\新建文件夹\react-to-do-list\node_modules\babel-core\index.js&apos; is not a loader (must have normal or pitch function)</span><br><span class="line">    at loadLoader (C:\Users\angelama\Desktop\新建文件夹\react-to-do-list\node_modules\loader-runner\lib\loadLoader.js:35:10)</span><br><span class="line">    at iteratePitchingLoaders</span><br></pre></td></tr></table></figure>
+<p>解决办法：<br>    webpack2已经不支持省略loader后缀，需要babel-loader<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//webpack.config.js</span><br><span class="line">module:&#123;</span><br><span class="line">        //loaders加载器</span><br><span class="line">        loaders: [</span><br><span class="line">            &#123;</span><br><span class="line">                test: /\.(js|jsx)$/,//一个匹配loaders所处理的文件的拓展名的正则表达式，这里用来匹配js和jsx文件（必须）</span><br><span class="line">                exclude: /node_modules/,//屏蔽不需要处理的文件（文件夹）（可选）</span><br><span class="line">                loader: &apos;babel-loader&apos;//loader的名称（必须）</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="2、问题"><a href="#2、问题" class="headerlink" title="2、问题"></a>2、问题</h5><p>npm run dev报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Invalid configuration object. webpack-dev-server has been initialised using a configuration object that does not match the API schema.</span><br><span class="line"> - configuration has an unknown property &apos;process&apos;. These properties are valid:</span><br><span class="line">   object &#123; hot?, hotOnly?, lazy?, bonjour?, host?, allowedHosts?, filename?, publicPath?, port?, socket?, watchOptions?, headers?, clientLogLevel?, overlay?, progress?, key?, cert?, ca?, pfx?, pfxPassphrase?</span><br><span class="line">, requestCert?, inline?, disableHostCheck?, public?, https?, contentBase?, watchContentBase?, open?, useLocalIp?, openPage?, features?, compress?, proxy?, historyApiFallback?, staticOptions?, setup?, before?,</span><br><span class="line"> after?, stats?, reporter?, noInfo?, quiet?, serverSideRender?, index?, log?, warn? &#125;</span><br></pre></td></tr></table></figure>
+<p>自动刷新的方式：<br>    在网页中嵌入了一个 iframe ，将我们自己的应用注入到这个 iframe 当中去，因此每次你修改的文件后，都是这个 iframe 进行了 reload</p>
+<p>解决办法：<br>修改webpack.config.js配置,不要加 colors,progress 等，webpack2已经不支持这些<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">    historyApiFallback: true,</span><br><span class="line">    inline: true,//注意：不写hot: true，否则浏览器无法自动更新；也不要写colors:true，progress:true等，webpack2.x已不支持这些</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<h5 id="3-antd引入样式文件"><a href="#3-antd引入样式文件" class="headerlink" title="3.antd引入样式文件"></a>3.antd引入样式文件</h5><p>报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">error in ./node_moudle/antd/dist/antd.css   </span><br><span class="line">Moudle parse failed:Unexpected character&apos;@&apos;</span><br></pre></td></tr></table></figure></p>
+<p>解决办法：webpack.config.js中 exclude注释掉，不然不会解析node_moudle中的文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    test: /\.(scss|css)$/,</span><br><span class="line">    use: [&apos;style-loader&apos;,&apos;css-loader&apos;,&apos;sass-loader&apos;],</span><br><span class="line">    // exclude: /node_modules/,                </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="4-Q-mac执行git命令时候出现："><a href="#4-Q-mac执行git命令时候出现：" class="headerlink" title="4. Q:mac执行git命令时候出现："></a>4. Q:mac执行git命令时候出现：</h5><p>xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun</p>
+<p>A:打开终端输入，<br>xcode-select –install</p>
+<p>回车后，系统弹出下载xcode，点击确认，下载完成后即可。（实际上不是下载xcode，可能下载xcode有关插件，下载时长约1分钟）</p>
+<p>Remember, in MAC git is attached to XCode’s Command line tools.</p>
+<p>Xcode 是运行在操作系统Mac OS X上的集成开发工具（IDE），由苹果公司开发。Xcode是开发OS X 和 iOS 应用程序的最快捷的方式。Xcode 具有统一的用户界面设计，编码、测试、调试都在一个简单的窗口内完成。</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/27/react开发路上的QA/" data-id="cjbp55uj100030297k8kflozc" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/27/react开发路上的QA/" data-id="cjbp5890b0001n3972pos5t3x" class="article-share-link">Share</a>
       
       
     </footer>
@@ -135,7 +149,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/15/github-hexo搭建博客/" data-id="cjbp55uiu00000297j8hrpn49" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/15/github-hexo搭建博客/" data-id="cjbp589070000n3978c9vsi5v" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li></ul>
@@ -179,7 +193,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/15/webpack/" data-id="cjbp55uj300040297d605o5g7" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/15/webpack/" data-id="cjbp5890e0003n397bwbye3he" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webpack/">webpack</a></li></ul>
@@ -226,7 +240,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/15/hello-world/" data-id="cjbp55uiy00010297g8lsbaml" class="article-share-link">Teilen</a>
+      <a data-url="http://yoursite.com/2017/12/15/hello-world/" data-id="cjbp5890g0004n397iu98cwjf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -266,7 +280,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li></ul>
     </div>
@@ -276,7 +290,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
