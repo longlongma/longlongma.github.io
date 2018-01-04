@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[http状态码]]></title>
+    <url>%2F2018%2F01%2F02%2Fhttp%E7%8A%B6%E6%80%81%E7%A0%81%2F</url>
+    <content type="text"><![CDATA[1XX : 信息类，表示收到的web浏览器请求，正在进一步的处理中 2XX ：成功，表示用户请求被正确接收，理解和处理，eg：200 OK 3XX ：重定向，表示请求没有成功，客户必须采取进一步的动作 4XX : 客户端错误，表示客户端提交的请求有错误，例如：404 NOT Found，意味着请求中所引用的文档不存在 5XX ：服务器错误，表示服务器不能完成队对请求的处理]]></content>
+      <tags>
+        <tag>http</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[web前端规范（一）- JavaScript]]></title>
+    <url>%2F2017%2F12%2F28%2Fweb%E5%89%8D%E7%AB%AF%E8%A7%84%E8%8C%83%EF%BC%88%E4%B8%80%EF%BC%89-JavaScript%2F</url>
+    <content type="text"><![CDATA[Javascipt空格 使用4个空格作为一个缩进层级 关键字function、if、else、for、switch、do、try等后必须要跟一个空格 具体函数名后的(),不需要跟空格 代码块{}左起的{，前面要跟一个空格 （）或[]，中紧邻的参数不需要跟空格 多个参数时，’,’、’;’;前面不需要空格，若不是最后一个，则后面要跟一个空格 二元运算符左右都必须要跟一个空格 一元运算符与操作对象间不需要跟空格 在对象创建时，属性中的：之前必须要空格，之前不要空格 行尾不要多余的空格 12345678function foo(a, b) &#123; //参数 ，后面要空格 var a = 2;//二元运算符左右都必须要跟一个空格 a++; var obj=&#123; m: 1, //对象创建时，属性中：后面要空格 n: 2 &#125;&#125;]]></content>
+      <tags>
+        <tag>规范</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[react开发路上的QA]]></title>
+    <url>%2F2017%2F12%2F27%2Freact%E5%BC%80%E5%8F%91%E8%B7%AF%E4%B8%8A%E7%9A%84QA%2F</url>
+    <content type="text"><![CDATA[1、问题123Error: Module &apos;C:\Users\angelama\Desktop\新建文件夹\react-to-do-list\node_modules\babel-core\index.js&apos; is not a loader (must have normal or pitch function) at loadLoader (C:\Users\angelama\Desktop\新建文件夹\react-to-do-list\node_modules\loader-runner\lib\loadLoader.js:35:10) at iteratePitchingLoaders 解决办法： webpack2已经不支持省略loader后缀，需要babel-loader 1234567891011//webpack.config.jsmodule:&#123; //loaders加载器 loaders: [ &#123; test: /\.(js|jsx)$/,//一个匹配loaders所处理的文件的拓展名的正则表达式，这里用来匹配js和jsx文件（必须） exclude: /node_modules/,//屏蔽不需要处理的文件（文件夹）（可选） loader: &apos;babel-loader&apos;//loader的名称（必须） &#125; ] &#125; 2、问题npm run dev报错 12345Invalid configuration object. webpack-dev-server has been initialised using a configuration object that does not match the API schema. - configuration has an unknown property &apos;process&apos;. These properties are valid: object &#123; hot?, hotOnly?, lazy?, bonjour?, host?, allowedHosts?, filename?, publicPath?, port?, socket?, watchOptions?, headers?, clientLogLevel?, overlay?, progress?, key?, cert?, ca?, pfx?, pfxPassphrase?, requestCert?, inline?, disableHostCheck?, public?, https?, contentBase?, watchContentBase?, open?, useLocalIp?, openPage?, features?, compress?, proxy?, historyApiFallback?, staticOptions?, setup?, before?, after?, stats?, reporter?, noInfo?, quiet?, serverSideRender?, index?, log?, warn? &#125; 自动刷新的方式： 在网页中嵌入了一个 iframe ，将我们自己的应用注入到这个 iframe 当中去，因此每次你修改的文件后，都是这个 iframe 进行了 reload 解决办法：修改webpack.config.js配置,不要加 colors,progress 等，webpack2已经不支持这些1234devServer: &#123; historyApiFallback: true, inline: true,//注意：不写hot: true，否则浏览器无法自动更新；也不要写colors:true，progress:true等，webpack2.x已不支持这些&#125;, 3.antd引入样式文件报错：12error in ./node_moudle/antd/dist/antd.css Moudle parse failed:Unexpected character&apos;@&apos; 解决办法：webpack.config.js中 exclude注释掉，不然不会解析node_moudle中的文件 12345&#123; test: /\.(scss|css)$/, use: [&apos;style-loader&apos;,&apos;css-loader&apos;,&apos;sass-loader&apos;], // exclude: /node_modules/, &#125; 4. Q:mac执行git命令时候出现：xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun A:打开终端输入，xcode-select –install 回车后，系统弹出下载xcode，点击确认，下载完成后即可。（实际上不是下载xcode，可能下载xcode有关插件，下载时长约1分钟） Remember, in MAC git is attached to XCode’s Command line tools. Xcode 是运行在操作系统Mac OS X上的集成开发工具（IDE），由苹果公司开发。Xcode是开发OS X 和 iOS 应用程序的最快捷的方式。Xcode 具有统一的用户界面设计，编码、测试、调试都在一个简单的窗口内完成。]]></content>
+      <tags>
+        <tag>react</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[github+hexo搭建博客]]></title>
+    <url>%2F2017%2F12%2F15%2Fgithub-hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%2F</url>
+    <content type="text"><![CDATA[基本使用1234$ hexo new &quot;page&quot;——新建文章$ hexo clean ——清空缓存（db.json）和已生成的静态文件（public）$ hexo generate —— 生成静态文件$ hexo deploy —— 重新部署到服务器 更换主题你可以到Hexo官网主题页去搜寻自己喜欢的theme。这里以hexo-theme-next为例 终端cd到 blog 目录下执行如下命令：1$ git clone https://github.com/iissnan/hexo-theme-next themes/next 终端cd到blog目录下执行如下命令(每次部署文章的步骤)：1$ hexo clean //清除缓存文件 (db.json) 和已生成的静态文件 (public) $ hexo g //生成缓存和静态文件 $ hexo d //重新部署到服务器 至于更改theme内容，比如名称，描述，头像等去修改blog/_config.yml文件和blog/themes/next/_config.yml文件中对应的属性名称即可， 不要忘记冒号:后加空格。 NexT 使用文档里有极详细的介绍。 参考文章]]></content>
+      <tags>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[webpack]]></title>
+    <url>%2F2017%2F12%2F15%2Fwebpack%2F</url>
+    <content type="text"><![CDATA[问题：1、webpack用途2、如何配置使用3、注意事项 先看一个常见的webpack配置文件12345678910111213141516171819202122232425262728293031323334353637383940var webpack = require(&apos;webpack&apos;);var HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;);var ExtractTextPlugin = require(&apos;extract-text-webpack-plugin&apos;);module.exports = &#123; entry: __dirname + &quot;/app/main.js&quot;, output: &#123; path: __dirname + &quot;/build&quot;, filename: &quot;[name]-[hash].js&quot; &#125;, module: &#123; loaders: [ &#123; test: /\.json$/, loader: &quot;json&quot; &#125;, &#123; test: /\.js$/, exclude: /node_modules/, loader: &apos;babel&apos; &#125;, &#123; test: /\.css$/, loader: ExtractTextPlugin.extract(&apos;style&apos;, &apos;css?modules!postcss&apos;) &#125; ] &#125;, postcss: [ require(&apos;autoprefixer&apos;) ], plugins: [ new HtmlWebpackPlugin(&#123; template: __dirname + &quot;/app/index.tmpl.html&quot; &#125;), new webpack.optimize.OccurenceOrderPlugin(), new webpack.optimize.UglifyJsPlugin(), new ExtractTextPlugin(&quot;[name]-[hash].css&quot;) ]&#125; 参考文章入门webpack React+Webpack快速上手指南]]></content>
+      <tags>
+        <tag>webpack</tag>
+      </tags>
+  </entry>
+</search>
