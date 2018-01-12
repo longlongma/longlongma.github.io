@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="问题：1、webpack用途2、如何配置使用3、注意事项 先看一个常见的webpack配置文件12345678910111213141516171819202122232425262728293031323334353637383940var webpack = require(&amp;apos;webpack&amp;apos;);var HtmlWebpackPlugin = require(&amp;apos;h">
+<meta name="description" content="问题：1、webpack用途2、如何配置使用3、注意事项 先看一个常见的webpack配置文件">
 <meta name="keywords" content="webpack">
 <meta property="og:type" content="article">
 <meta property="og:title" content="webpack">
 <meta property="og:url" content="http://yoursite.com/2017/12/15/webpack/index.html">
 <meta property="og:site_name" content="天道酬勤">
-<meta property="og:description" content="问题：1、webpack用途2、如何配置使用3、注意事项 先看一个常见的webpack配置文件12345678910111213141516171819202122232425262728293031323334353637383940var webpack = require(&amp;apos;webpack&amp;apos;);var HtmlWebpackPlugin = require(&amp;apos;h">
+<meta property="og:description" content="问题：1、webpack用途2、如何配置使用3、注意事项 先看一个常见的webpack配置文件">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-03T02:56:41.000Z">
+<meta property="og:updated_time" content="2018-01-12T02:29:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack">
-<meta name="twitter:description" content="问题：1、webpack用途2、如何配置使用3、注意事项 先看一个常见的webpack配置文件12345678910111213141516171819202122232425262728293031323334353637383940var webpack = require(&amp;apos;webpack&amp;apos;);var HtmlWebpackPlugin = require(&amp;apos;h">
+<meta name="twitter:description" content="问题：1、webpack用途2、如何配置使用3、注意事项 先看一个常见的webpack配置文件">
 
 
 
@@ -345,8 +345,8 @@
 
       
         <p>问题：<br>1、webpack用途<br>2、如何配置使用<br>3、注意事项</p>
-<p>先看一个常见的webpack配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">var webpack = require(&apos;webpack&apos;);</span><br><span class="line">var HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;);</span><br><span class="line">var ExtractTextPlugin = require(&apos;extract-text-webpack-plugin&apos;);</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">  entry: __dirname + &quot;/app/main.js&quot;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: __dirname + &quot;/build&quot;,</span><br><span class="line">    filename: &quot;[name]-[hash].js&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  module: &#123;</span><br><span class="line">    loaders: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.json$/,</span><br><span class="line">        loader: &quot;json&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.js$/,</span><br><span class="line">        exclude: /node_modules/,</span><br><span class="line">        loader: &apos;babel&apos;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.css$/,</span><br><span class="line">        loader: ExtractTextPlugin.extract(&apos;style&apos;, &apos;css?modules!postcss&apos;)</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  postcss: [</span><br><span class="line">    require(&apos;autoprefixer&apos;)</span><br><span class="line">  ],</span><br><span class="line"></span><br><span class="line">  plugins: [</span><br><span class="line">    new HtmlWebpackPlugin(&#123;</span><br><span class="line">      template: __dirname + &quot;/app/index.tmpl.html&quot;</span><br><span class="line">    &#125;),</span><br><span class="line">    new webpack.optimize.OccurenceOrderPlugin(),</span><br><span class="line">    new webpack.optimize.UglifyJsPlugin(),</span><br><span class="line">    new ExtractTextPlugin(&quot;[name]-[hash].css&quot;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<a id="more"></a>
+<p>先看一个常见的webpack配置文件<br><a id="more"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">var webpack = require(&apos;webpack&apos;);</span><br><span class="line">var HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;);</span><br><span class="line">var ExtractTextPlugin = require(&apos;extract-text-webpack-plugin&apos;);</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">  entry: __dirname + &quot;/app/main.js&quot;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: __dirname + &quot;/build&quot;,</span><br><span class="line">    filename: &quot;[name]-[hash].js&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  module: &#123;</span><br><span class="line">    loaders: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.json$/,</span><br><span class="line">        loader: &quot;json&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.js$/,</span><br><span class="line">        exclude: /node_modules/,</span><br><span class="line">        loader: &apos;babel&apos;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.css$/,</span><br><span class="line">        loader: ExtractTextPlugin.extract(&apos;style&apos;, &apos;css?modules!postcss&apos;)</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  postcss: [</span><br><span class="line">    require(&apos;autoprefixer&apos;)</span><br><span class="line">  ],</span><br><span class="line"></span><br><span class="line">  plugins: [</span><br><span class="line">    new HtmlWebpackPlugin(&#123;</span><br><span class="line">      template: __dirname + &quot;/app/index.tmpl.html&quot;</span><br><span class="line">    &#125;),</span><br><span class="line">    new webpack.optimize.OccurenceOrderPlugin(),</span><br><span class="line">    new webpack.optimize.UglifyJsPlugin(),</span><br><span class="line">    new ExtractTextPlugin(&quot;[name]-[hash].css&quot;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>参考文章<a href="http://www.jianshu.com/p/42e11515c10f" target="_blank" rel="noopener">入门webpack</a></p>
 <p><a href="http://www.jianshu.com/p/418e48e0cef1" target="_blank" rel="noopener">React+Webpack快速上手指南</a></p>
@@ -380,6 +380,10 @@
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/12/Note—精通css/" rel="next" title="Note—精通css">
+                <i class="fa fa-chevron-left"></i> Note—精通css
+              </a>
             
           </div>
 
@@ -461,7 +465,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -474,7 +478,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>

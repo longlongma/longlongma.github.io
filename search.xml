@@ -9,6 +9,11 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[git用法小结]]></title>
+    <url>%2F2018%2F01%2F01%2Fgit%E7%94%A8%E6%B3%95%E5%B0%8F%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[####第4章 通过实际操作学习git #####4.1 git基本操作 git init— 初始化仓库生成 .git 文件夹，这个 .git 目录里管理着当前目录内容所需的仓库数据，在Git中，我们将这个目录的内容成为“附属于该仓库的工作树”。 git status— 查看仓库的状态 mkdir abc 创建文件夹abc touch abc.html 创建文件 abc.html git log — 查看提交日志(1) 只显示指定目录、文件的日志 $ git log README.md(2)显示文件的具体改动内容 $ git log -p git diff查看工作树和暂存区的区别不妨养成在$ git commit之前，$ git diff HEAD,查看本次提交和上次提交有什么区别HEAD是指针，指向当前分支的最新一次提交 #####4.2分支的操作 git branch— 显示分支一览表 $ git checkout -b 创建、切换分支如果你想以当前的master分支为基础创建新的分支，我们需要用到$git checkout -b(1)创建 feature-A 分支，并进行提交1$ git checkout -b feature-A //创建分支 feature-A 等同于12$ git branch feature-A //创建分支$ git checkout feature-A //切换到分支 (2)切换到 master 分支1$git checkout master //checkout 查看 git checkout - ‘-‘ 连字符表示切换回上一个分支 git merge — 合并分支假设feature-A 这个特性分支开发完毕，想要将他合并到主干分支master中。(1)首先切换到 master 分支1$git checkout master (2)然后合并分支， 为了历史记录，需要创建合并提交，因此在合并时加上 --no-ff参数1$ git merge --no-ff feature-A 咳咳咳！！！！敲黑板，这个时候会进入 vim 编辑器状态，想当时我折腾了半天不知道那是个啥随后编辑器会启动，用于录入和并提交的信息，默认信息中已经包含了是从分支合并过来的相关内容，所以保存就好了，然后关闭编辑器先退出输出状态 Esc，然后进入输入状态 shift + ：，最后输入 wq！（保存并退出）vim命令总结(3)成功的话，就会看到 4.. git log --graph — 以图标的形式查看分支此时此刻很有成就感，成功新建了一个分支，并且合并啦 #####4.3 更改提交的操作 git reset — 回溯历史版本如果此时我想创建一个feature-A 的兄弟分支，feature-B，怎么办呢？那就需要回溯到创建A的分支之前的节点，创建一个B分支，（1）要让仓库的HEAD、暂存区、当前工作树回溯到制定状态，需要用到git reset --hard命令，只需要提供目标时间点的哈希值，就可以完全恢复至改时间点的状态。 （2）此时已经恢复到了创建分支A之前的节点，创建分支B1$ git checkout -b feature-B 随便写点什么，并且提交，一定要提交哦，也就是git add 、git commit，不然没有记录，如果自己不小心把代码搞丢了，是找不到的 （3）分支培育好了，要合并了 ———推进至A分支合并后的状态git log 命令只能查看以当前状态为终点的历史日志，所以这里要使用 git reflog命令，查看当前仓库的操作日志 ，寻找此时的哈希值，然后git reset --hard,之后合并2.git rebase -i——压缩历史在合并特性分支之前，如果发现已提交的内容中有些许拼写错误，这可以合并到上一个提交压缩成一个历史记录，来保证历史记录的高效性、正确性。（1）创建分支C1$ git checkout -b ccc （2）对文件进行修改（并预留错误），并提交很小的更改可以直接一次性git commit -am&quot;information&quot;，不需要git add， git commit（3）修正代码中错误查看一下当前工作区和暂存树中的不同git diff 并提交1$ git commit -am&quot;Fix typo&quot; 漏字错字等失误称作typo，但是历史记录中不需要出现这类信息，所以要合并到上一个历史记录 （4）更改历史1$ git rebase -i HEAD~2 用这种方法执行git rebase命令，可以选定当前分支中包含HEAD（最新提交）在内的两个最新历史记录为对象，并在编辑器中打开 将ea3730a左侧的pick部分删除，改为fixup，保存编辑器里的内容，关闭编辑器]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[web前端规范（一）- JavaScript]]></title>
     <url>%2F2017%2F12%2F28%2Fweb%E5%89%8D%E7%AB%AF%E8%A7%84%E8%8C%83%EF%BC%88%E4%B8%80%EF%BC%89-JavaScript%2F</url>
     <content type="text"><![CDATA[Javascipt空格 使用4个空格作为一个缩进层级 关键字function、if、else、for、switch、do、try等后必须要跟一个空格 具体函数名后的(),不需要跟空格 代码块{}左起的{，前面要跟一个空格 （）或[]，中紧邻的参数不需要跟空格 多个参数时，’,’、’;’;前面不需要空格，若不是最后一个，则后面要跟一个空格 二元运算符左右都必须要跟一个空格 一元运算符与操作对象间不需要跟空格 在对象创建时，属性中的：之前必须要空格，之前不要空格 行尾不要多余的空格 12345678function foo(a, b) &#123; //参数 ，后面要空格 var a = 2;//二元运算符左右都必须要跟一个空格 a++; var obj=&#123; m: 1, //对象创建时，属性中：后面要空格 n: 2 &#125;&#125;]]></content>
@@ -27,7 +32,7 @@
   <entry>
     <title><![CDATA[github+hexo搭建博客]]></title>
     <url>%2F2017%2F12%2F15%2Fgithub-hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%2F</url>
-    <content type="text"><![CDATA[基本使用1234$ hexo new &quot;page&quot;——新建文章$ hexo clean ——清空缓存（db.json）和已生成的静态文件（public）$ hexo generate —— 生成静态文件$ hexo deploy —— 重新部署到服务器 更换主题你可以到Hexo官网主题页去搜寻自己喜欢的theme。这里以hexo-theme-next为例 终端cd到 blog 目录下执行如下命令：1$ git clone https://github.com/iissnan/hexo-theme-next themes/next 终端cd到blog目录下执行如下命令(每次部署文章的步骤)：1$ hexo clean //清除缓存文件 (db.json) 和已生成的静态文件 (public) $ hexo g //生成缓存和静态文件 $ hexo d //重新部署到服务器 至于更改theme内容，比如名称，描述，头像等去修改blog/_config.yml文件和blog/themes/next/_config.yml文件中对应的属性名称即可， 不要忘记冒号:后加空格。 NexT 使用文档里有极详细的介绍。 参考文章]]></content>
+    <content type="text"><![CDATA[基本使用1234$ hexo new &quot;page&quot;——新建文章$ hexo clean ——清空缓存（db.json）和已生成的静态文件（public）$ hexo generate —— 生成静态文件$ hexo deploy —— 重新部署到服务器 更换主题你可以到Hexo官网主题页去搜寻自己喜欢的theme。这里以hexo-theme-next为例终端cd到 blog 目录下执行如下命令：1$ git clone https://github.com/iissnan/hexo-theme-next themes/next 终端cd到blog目录下执行如下命令(每次部署文章的步骤)：1$ hexo clean //清除缓存文件 (db.json) 和已生成的静态文件 (public) $ hexo g //生成缓存和静态文件 $ hexo d //重新部署到服务器 至于更改theme内容，比如名称，描述，头像等去修改blog/_config.yml文件和blog/themes/next/_config.yml文件中对应的属性名称即可， 不要忘记冒号:后加空格。 NexT 使用文档里有极详细的介绍。 参考文章]]></content>
       <tags>
         <tag>github</tag>
       </tags>
@@ -35,9 +40,49 @@
   <entry>
     <title><![CDATA[webpack]]></title>
     <url>%2F2017%2F12%2F15%2Fwebpack%2F</url>
-    <content type="text"><![CDATA[问题：1、webpack用途2、如何配置使用3、注意事项 先看一个常见的webpack配置文件12345678910111213141516171819202122232425262728293031323334353637383940var webpack = require(&apos;webpack&apos;);var HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;);var ExtractTextPlugin = require(&apos;extract-text-webpack-plugin&apos;);module.exports = &#123; entry: __dirname + &quot;/app/main.js&quot;, output: &#123; path: __dirname + &quot;/build&quot;, filename: &quot;[name]-[hash].js&quot; &#125;, module: &#123; loaders: [ &#123; test: /\.json$/, loader: &quot;json&quot; &#125;, &#123; test: /\.js$/, exclude: /node_modules/, loader: &apos;babel&apos; &#125;, &#123; test: /\.css$/, loader: ExtractTextPlugin.extract(&apos;style&apos;, &apos;css?modules!postcss&apos;) &#125; ] &#125;, postcss: [ require(&apos;autoprefixer&apos;) ], plugins: [ new HtmlWebpackPlugin(&#123; template: __dirname + &quot;/app/index.tmpl.html&quot; &#125;), new webpack.optimize.OccurenceOrderPlugin(), new webpack.optimize.UglifyJsPlugin(), new ExtractTextPlugin(&quot;[name]-[hash].css&quot;) ]&#125; 参考文章入门webpack React+Webpack快速上手指南]]></content>
+    <content type="text"><![CDATA[问题：1、webpack用途2、如何配置使用3、注意事项 先看一个常见的webpack配置文件 12345678910111213141516171819202122232425262728293031323334353637383940var webpack = require(&apos;webpack&apos;);var HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;);var ExtractTextPlugin = require(&apos;extract-text-webpack-plugin&apos;);module.exports = &#123; entry: __dirname + &quot;/app/main.js&quot;, output: &#123; path: __dirname + &quot;/build&quot;, filename: &quot;[name]-[hash].js&quot; &#125;, module: &#123; loaders: [ &#123; test: /\.json$/, loader: &quot;json&quot; &#125;, &#123; test: /\.js$/, exclude: /node_modules/, loader: &apos;babel&apos; &#125;, &#123; test: /\.css$/, loader: ExtractTextPlugin.extract(&apos;style&apos;, &apos;css?modules!postcss&apos;) &#125; ] &#125;, postcss: [ require(&apos;autoprefixer&apos;) ], plugins: [ new HtmlWebpackPlugin(&#123; template: __dirname + &quot;/app/index.tmpl.html&quot; &#125;), new webpack.optimize.OccurenceOrderPlugin(), new webpack.optimize.UglifyJsPlugin(), new ExtractTextPlugin(&quot;[name]-[hash].css&quot;) ]&#125; 参考文章入门webpack React+Webpack快速上手指南]]></content>
       <tags>
         <tag>webpack</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Note—精通css]]></title>
+    <url>%2F2017%2F08%2F12%2FNote%E2%80%94%E7%B2%BE%E9%80%9Acss%2F</url>
+    <content type="text"><![CDATA[###3.1.2外边距叠加只有普通文档流中块框的垂直外边距才会发生外边距叠加，行内框、浮动框或绝对定位框之间的外边距不会叠加 ###3.2定位概述 ####3.2.1可视化格式模型css中有3种基本的定位机制:普通流、浮动、绝对定位。 如何修改行内框的尺寸？1、行内框在一行中水平排列，可以使用水平内边距、边框、外边距调整他们的水平间距2、行内框高度并不受垂直内边距、边框、和外边距的影响3、行内框设置显式的高度和宽度也没有影响4、修改行内框尺寸的唯一办法就是修改行高或者水平边框、水平内边距和外边距 ####3.2.2相对定位相对定位移动位置之后,元素仍然占据原来的空间，因此，这样移动会造成它覆盖其他框12345.myBox&#123; position:relative; left:20px; top:20px;&#125; ####3.2.3绝对定位相对定位实际上可以看做普通流定位模型中的一部分，因为元素的位置是相对于他在普通流中的位置。绝对定位使元素的位置与文档流无关，因此不占据空间，普通文档流中其他元素的布局就是绝对定位的元素不存在一样。 相对定位是“相对于”元素在文档流中的初始位置，而绝对定位是“相对于”距离它最近的已定位祖先元素，如果不存在已定位的祖先元素，那么相对于初始包含块 ####3.2.4浮动1、现象浮动会让元素脱离文档流，不再影响不浮动的元素，实际上并不完全如此。浮动元素后面的文档流元素，这个元素的框不受浮动影响，但是其中的文本元素会受影响，会移动以留出空间。技术术语：浮动元素旁边的行框被缩短，从而给浮动元素留出空间，因此行框围绕浮动框。实际上，创建浮动框使文本可以围绕图像。]]></content>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[css打造Mac Air]]></title>
+    <url>%2F2017%2F03%2F20%2Fcss%E6%89%93%E9%80%A0Mac-Air%2F</url>
+    <content type="text"><![CDATA[期待的效果： ####第0步 box-shadow:0 5px 6px rgb(160,160,160);基本语法是{box-shadow:[inset] x-offset y-offset blur-radius spread-radiuscolor}对象选择器 {box-shadow:[投影方式] X轴偏移量 Y轴偏移量阴影模糊半径 阴影扩展半径 阴影颜色} 最后从div的左下角到右上角以60度添加一个线性渐变linear-gradient，是从白色开始从四分之一出过渡到灰色。 linear-gradient css渐变 ####第1步123456789101112.board&#123; background: rgb(210,210,210); width:600px; height:450px; margin:0 auto; -webkit-border-radius:20px; -moz-border-radius:20px; border-radius:20px; box-shadow: 0px 5px 6px rgb(160,160,160);//线性渐变 background: -webkit-linear-gradient(60deg,rgba(250,250,250,1)25%,rgba(210,210,210,1)); &#125; 此时，面板已经打造完成，效果呢，就像下面这个样子，忽略那些字符吧 ####第2步 盖子.board:before{ }伪元素 要设置display属性，才可以确定它的样式，并显示出来 border-top-left-radius：border-bottom-right-radius: length|% [length|%];注释：border-top-left-radius 属性的长度值和百分比值定义四分之一椭圆（定义外部边框边缘的边角形状）的半径（radii）。第一个值是水平半径，第二个值是垂直半径 1234rgb(30,60,100,180,210)各自的颜色趋向box-sizingbox-shadowbackground: -webkit-linear-gradient(top,rgb(30,30,30),rgb(60,60,60)35%,rgb(100,100,100)50%,rgb(30,30,30)65%); 当啷，键盘区画好啦我们用box-shadow给keyboard的四条边框添加四条内部inset阴影，关于box-shadow以后有机会再讲，先把实现和效果贴上： 五、第五步 http://mp.weixin.qq.com/s/K33g-rlU0_AVMQADyPN-Aw]]></content>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[css命名准则]]></title>
+    <url>%2F2017%2F03%2F12%2Fcss%E5%91%BD%E5%90%8D%E5%87%86%E5%88%99%2F</url>
+    <content type="text"><![CDATA[####一、名字的本质是什么 对于css，为了避免样式冲突，我们总是会赋予它相当特殊的命名，或者是在选择符上添加HTML标记，或是使用层级。我们会在避免冲突上狠作文章，所谓过犹不及，结果又是一个烂摊子，重用性会很低很低，这就导致本是窈窕淑女，却变得臃肿不堪。例如，下面人人网的css命名（张鑫旭大大说需要这种反面例子的时候就去找人人和新浪，一找一个准(●’◡’●)）： 我们都希望写出精简高效的css代码，如果css重用性越高，就越高效，这个时候命名就要越简单、越容易被重用。BUT，简单的命名越容易造成样式冲突，例如 .more{ }。从这点上来说，【重用性】与【样式冲突】是两个对立的矛盾体。 不过，这种矛盾并不是不可以调和的，记住一些准则和方法，css 既可以有高效的重用性，又不会有样式冲突。 面向属性的命名方法 整理借鉴于张鑫旭大大的博文]]></content>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[css三角形一些不得不说的故事]]></title>
+    <url>%2F2017%2F01%2F12%2Fcss%E4%B8%89%E8%A7%92%E5%BD%A2%E4%B8%80%E4%BA%9B%E4%B8%8D%E5%BE%97%E4%B8%8D%E8%AF%B4%E7%9A%84%E6%95%85%E4%BA%8B%2F</url>
+    <content type="text"><![CDATA[经常会用到三角形（比如对话啊，气泡之类的地方），用于明确指向发言者总是百度一下成型的写法，一直想研究下，耐不住懒啊终于打败的我的拖延症，整体下那些关于CSS三角形的故事 分为两种 （1）类名；（2）伪类貌似这两种写法都和border脱不了干系，那我们先来看看 border 的到底是如何作用在盒模型上的 随便来个盒模型，当当当123456789.Triangular .bubble&#123; width: 300px; height: 100px; border-top:10px solid #000; border-right:10px solid red; border-bottom:10px solid blue; border-left:10px solid green; margin-top: 20px;&#125; 原来border的四个边，在拐角相遇的时候，各占45°，嗯~ 很合理既然这样，那定义类名写三角形就很简单了 一. 定义类名 让内容为0，需要哪个方向的角，写那个方向的boder即可，需要注意的是，单单只写一个方向的border无效，需要相邻方向的border一起来定义，好比这是公共区域，一个人说了不算 123456789101112131415//两个方向.test&#123; width: 0; height: 0; border-top: 10px solid #000; border-right：10px solid transparent;&#125;//三个方向.test&#123; width: 0; height: 0; border-top: 10px solid #000; border-right：10px solid transparent; border-left：10px solid transparent;&#125; 综上：需要相邻的三个border才能定义一个水平垂直方向的三角形 写的简单一点123456.test&#123; width: 0; height: 0; border: 10px solid transparent; border-top: 10px solid #000;&#125; 第二步，相对父元素定位12345678910111213.father&#123; position:relative;&#125;.test&#123; width: 0; height: 0; border-right: 10px solid #000; border: 10px solid transparent; //定位 position: absolute; left: -10px; top: 10px;&#125; —— 未完待续——二. 利用伪类]]></content>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[两个静态html之间相互传值]]></title>
+    <url>%2F2016%2F09%2F12%2F%E4%B8%A4%E4%B8%AA%E9%9D%99%E6%80%81html%E4%B9%8B%E9%97%B4%E7%9B%B8%E4%BA%92%E4%BC%A0%E5%80%BC%2F</url>
+    <content type="text"><![CDATA[关键词 ：url主要思想： 通过url 在两个页面之间传值 1、 a.html 123456789101112131415161718&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt; &lt;meta charset=&quot;UTF-8&quot;&gt; &lt;title&gt;a&lt;/title&gt; &lt;/head&gt;&lt;body&gt; &lt;input type=&quot;text&quot; id=&quot;name&quot; class=&quot;input7&quot;&gt; &lt;input type=&quot;button&quot; value=&quot;OK&quot; onclick=&quot;show()&quot;/&gt;&lt;script&gt; function show()&#123; var result = document.getElementById(&quot;name&quot;).value; location.href=&quot;b.html?name=&quot;+result; //利用url参数传递！！！&#125;&lt;/script&gt;&lt;/body&gt;&lt;/html&gt; 2、b.html 123456789101112131415161718192021222324&lt;!DOCTYPE html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt; &lt;meta charset=&quot;UTF-8&quot;&gt; &lt;title&gt;b&lt;/title&gt;&lt;/head&gt;&lt;body&gt; &lt;input type=&quot;button&quot; onclick=&quot;getValue(&apos;name&apos;)&quot; value=&quot;GetValue&quot;/&gt;&lt;script&gt; function getValue(name) &#123; var str = window.location.search; // location.search是从当前URL的?号开始的字符串 if (str.indexOf(name) != -1) &#123; var pos_start = str.indexOf(name) + name.length + 1; var pos_end = str.indexOf(&quot;&amp;&quot;, pos_start); //检查是否有其他的参数传递 if (pos_end == -1) &#123; alert(str.substring(pos_start)); &#125; else &#123; alert(&quot;没有此值~~&quot;); &#125; &#125; &#125;&lt;/script&gt;&lt;/body&gt;&lt;/html&gt; 3、效果图]]></content>
+      <tags>
+        <tag>http</tag>
       </tags>
   </entry>
 </search>
