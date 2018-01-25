@@ -406,21 +406,17 @@
 
       
         
-          
-            <blockquote>
+          <blockquote>
 <p>谁等待了足够的时间，谁就将永远等待下去，超过了某一个期限，就什么也不会发生了。 —— 塞缪尔·贝克特 《马龙之死》</p>
 </blockquote>
-<h4 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h4><p></p><p>注释：导航栏 应该在每一个屏幕中都有，如果没有react router，我们将把ul封装为一个组件，比如Nav，然后将 Nav 渲染近每一个屏幕；<br>          但是随着项目的复杂度的增加，会使得项目代码冗余，react-router提供了另外一种方式和嵌套路由共享UI</p><br>        <p>React Router embraces this by letting you nest your routes, which automatically becomes nested UI.<br>          通过让你嵌套路由，自然形成嵌套的UI</p><br>        <p>The best way to build large things is to stitch small things together.</p><br>        <p>这是react-router的真正威力，每一条route都可以作为一个独立的应用程序来开发</p><br>这才是react-route的真正威力<p></p>
-<p><img src="https://ws4.sinaimg.cn/large/006tNc79gy1fnpgxgeei8j31kw0c7400.jpg" alt=" 04 嵌套"></p>
-<h4 id="Active-Links"><a href="#Active-Links" class="headerlink" title="Active Links"></a>Active Links</h4><p></p><p>Link 不同于 a 标签的一个原因是，Link 可以区别这个链接是否是被激活的(active)，以便于开发者标记不同的样式</p><br>行内样式 或者 className都是支持的<p></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// modules/App.js</span><br><span class="line">&lt;li&gt;&lt;Link to=&quot;/about&quot; activeStyle=&#123;&#123; color: &apos;red&apos; &#125;&#125;&gt;About&lt;/Link&gt;&lt;/li&gt;</span><br><span class="line">&lt;li&gt;&lt;Link to=&quot;/repos&quot; activeStyle=&#123;&#123; color: &apos;red&apos; &#125;&#125;&gt;Repos&lt;/Link&gt;&lt;/li&gt;</span><br><span class="line"></span><br><span class="line">// modules/App.js</span><br><span class="line">&lt;li&gt;&lt;Link to=&quot;/about&quot; activeClassName=&quot;active&quot;&gt;About&lt;/Link&gt;&lt;/li&gt;</span><br><span class="line">&lt;li&gt;&lt;Link to=&quot;/repos&quot; activeClassName=&quot;active&quot;&gt;Repos&lt;/Link&gt;&lt;/li&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="https://ws3.sinaimg.cn/large/006tKfTcgy1fnqk2eci62j31bi0g440h.jpg" alt="active styles"></p>
-<p>如果将每一个有激活样式的Link都写上样式，会产生很多冗余代码，所以我们可以把有激活样式的Link封装一下,在需要使用的时候 引用 封装后的NavLink<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// moudle/NavLink.js</span><br><span class="line">import React from &apos;react&apos;;</span><br><span class="line">import &#123;Link&#125; from &apos;react-router&apos;;</span><br><span class="line">export default class NavLink extends React.Component&#123;</span><br><span class="line">    render()&#123;</span><br><span class="line">        return &lt;Link &#123;...this.props&#125; activeStyle = &#123;&#123;color:&apos;red&apos;&#125;&#125;&gt;&lt;/Link&gt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// moudle/App.js</span><br><span class="line"></span><br><span class="line">&lt;li&gt;&lt;NavLink to=&quot;/about&quot; &gt;About&lt;/NavLink&gt;&lt;/li&gt;</span><br><span class="line">&lt;li&gt;&lt;NavLink to=&quot;/repos&quot; &gt;Repos&lt;/NavLink&gt;&lt;/li&gt;</span><br></pre></td></tr></table></figure></p>
-<h4 id="URL-Params"><a href="#URL-Params" class="headerlink" title="URL Params"></a>URL Params</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/repos/reactjs/react-rpute</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/repos/:userName/:repoName</span><br></pre></td></tr></table></figure>
-<p>URL中用 ： 开头的参数的值，可以在组件中用 this.props.params[name]取到</p>
-
-          
+<h4 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h4><p></p><p>注释：导航栏 应该在每一个屏幕中都有，如果没有react router，我们将把ul封装为一个组件，比如Nav，然后将 Nav 渲染近每一个屏幕；<br> 但是随着项目的复杂度的增加，会使得项目代码冗余，react-router提供了另外一种方式和嵌套路由共享UI</p><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/23/react-router温故知新/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
