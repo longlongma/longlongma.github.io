@@ -92,7 +92,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1424949-1e17bdffde7f6f2b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1424949-79fb2b9654262b1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1424949-4ebcb20dc0c87123.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-01-19T03:22:55.000Z">
+<meta property="og:updated_time" content="2018-01-27T13:05:49.082Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css三角形一些不得不说的故事">
 <meta name="twitter:description" content="经常会用到三角形（比如对话啊，气泡之类的地方），用于明确指向发言者总是百度一下成型的写法，一直想研究下，耐不住懒啊终于打败的我的拖延症，整体下那些关于CSS三角形的故事  分为两种 （1）类名；（2）伪类貌似这两种写法都和border脱不了干系，那我们先来看看 border 的到底是如何作用在盒模型上的">
@@ -427,8 +427,7 @@
 <p>写的简单一点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.test&#123;</span><br><span class="line">    width: 0;</span><br><span class="line">    height: 0;</span><br><span class="line">    border: 10px solid transparent;</span><br><span class="line">    border-top: 10px solid #000;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>第二步，相对父元素定位<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">.father&#123;</span><br><span class="line">  position:relative;</span><br><span class="line">&#125;</span><br><span class="line">.test&#123;</span><br><span class="line">    width: 0;</span><br><span class="line">    height: 0;</span><br><span class="line">    border-right: 10px solid #000;</span><br><span class="line">    border: 10px solid transparent;</span><br><span class="line">    //定位</span><br><span class="line">    position: absolute;</span><br><span class="line">    left: -10px;</span><br><span class="line">    top: 10px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1424949-4ebcb20dc0c87123.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="相对父元素定位"></p>
-<p>—— 未完待续——<br>二.  利用伪类</p>
-<hr>
+<p>利用伪类也是很常用的方法，实现方法类似</p>
 
       
     </div>
