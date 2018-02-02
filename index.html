@@ -303,6 +303,443 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://longlongma.github.io/2018/02/02/时间戳/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="安哥拉">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天道酬勤">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/02/时间戳/" itemprop="url">时间戳</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-02T10:51:40+08:00">
+                2018-02-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/02/02/时间戳/" class="leancloud_visitors" data-flag-title="时间戳">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>你可以过闲云野鹤的生活，但是请先明白人间疾苦，你不用成为强大的人，但请一定成为懂得思考自身的人。——周宏翔 《名丽场》</p>
+</blockquote>
+<h3 id="日期转换为时间戳-不要时分秒"><a href="#日期转换为时间戳-不要时分秒" class="headerlink" title="日期转换为时间戳 不要时分秒"></a>日期转换为时间戳 不要时分秒</h3><p>转换为时间戳的函数  getTime();<br>但是只有 Date()格式的时间，才可以转换为时间戳，换言之<br>形如：Fri Feb 02 2018 11:23:40 GMT+0800 (CST)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var data = new Date();  // data : Fri Feb 02 2018 11:23:40 GMT+0800 (CST)</span><br><span class="line">data.getTime(); // 1517541820502</span><br><span class="line"></span><br><span class="line">//只要年月日的时间戳，就需要 Date日期格式 只含有 年月日，时分秒为0 </span><br><span class="line">var data2 = new Date().toLocaleDateString();  //Date 的 toLocaleDateString 方法</span><br><span class="line">console.log(data2); //  &quot;2018/2/2&quot;  (现在时间为 2018/2/2)</span><br><span class="line"></span><br><span class="line">//把这个时间转换为 Date格式</span><br><span class="line"></span><br><span class="line">var value = new Date(data2).getTime(); //1517500800000</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79gy1fo1wvay9gwj30d409v0tk.jpg" alt=""></p>
+<p>转换为时间戳方法总结：</p>
+<ul>
+<li>data.getTime(); //1517541820502</li>
+<li>data.valueOf(); //1517541820502</li>
+<li>Date.parse(data); //1517541820000</li>
+</ul>
+<p>前两种方法精确到毫秒，后面一种 只能精确到秒，毫秒部分 用000 代替</p>
+<h3 id="时间戳转换为日期"><a href="#时间戳转换为日期" class="headerlink" title="时间戳转换为日期"></a>时间戳转换为日期</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var date = new Date(时间戳);</span><br><span class="line">var year = date.getFullYear(); //获取完整年份 2018</span><br><span class="line">var month = date.getMonth(); //获取月份（0-11） 要+1；</span><br><span class="line">var day = date.getDate(); //获取日期（1-31）</span><br><span class="line">var hour = date.Hours(); //获取小时数（0-23）</span><br><span class="line">var minutes = date.getMinutes(); //获取分钟数（0-59）</span><br><span class="line">var seconds = date.getSeconds(); //获取秒数 （0-59）</span><br><span class="line"></span><br><span class="line">var times = date.getTime(); //获取时间戳，从1970.1.1年开始的毫秒数</span><br><span class="line"></span><br><span class="line">var today = date.toLocaleDateString(); // toLocaleDateString() 方法可根据本地时间把 Date 对象的日期部分转换为字符串，并返回结果</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://longlongma.github.io/2018/02/01/关于html打印在A4纸上的一点小tips/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="安哥拉">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天道酬勤">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/01/关于html打印在A4纸上的一点小tips/" itemprop="url">关于html打印在A4纸上的一点小tips</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-01T15:54:23+08:00">
+                2018-02-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/02/01/关于html打印在A4纸上的一点小tips/" class="leancloud_visitors" data-flag-title="关于html打印在A4纸上的一点小tips">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>看周围的人如此忙碌，面对死亡如此紧张，贪婪地享受现在，只是为了不去想明天….. ——Muriel Barbery 《刺猬的优雅》</p>
+</blockquote>
+<p>因为我司主要是做面向政府服务的系统，所以经常会需要用到一些 导出word、打印表格之类的，就需要 前端写样式来适应输出到A4并且打印美观</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://longlongma.github.io/2018/01/29/重新认识js/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="安哥拉">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天道酬勤">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/29/重新认识js/" itemprop="url">重新认识js</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-29T18:56:47+08:00">
+                2018-01-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/01/29/重新认识js/" class="leancloud_visitors" data-flag-title="重新认识js">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>人很容易会安于现状，踟蹰着不敢迈出第一步，等自己真的尝试去做了，霍然回首，发现自己前进了一大步  ——龙龙 《随笔》</p>
+</blockquote>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>1995年，netscape公司一位名叫Brendan Eich的工程师创造了JavaScript，当时js名为LiveScript，后来因为sun公司的Java语言的兴起和广泛使用，Netscape出于宣传和推广的考虑，更名为JavaScript。尽管两者之间咩有什么共同点，这便是产生混淆的根源。<br>与大多数编程语言不同，Js并没有输入或输出的概念。他是一个在宿主环境下运行的脚本语言，任何与外界沟通的机制都是由宿主环境提供的。浏览器是最常见的宿主环境，但在非常多的其他程序中也包含JS解释器，如Adobe Acrobat、Photoshop、SVG图像、Yahoo！的Widget引擎，以及Node.js之类的服务器环境。JS的实际应用远不止这些，还有NoSQL数据库、嵌入式计算机，以及包括GNOME在内的桌面环境等等<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/29/重新认识js/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://longlongma.github.io/2018/01/28/react浅析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -384,8 +821,7 @@
 
       
         
-          
-            <blockquote>
+          <blockquote>
 <p>Change is the only proof of life. —— Evelyn Waugh 《Brideshead Revisited》<br>所有在JSX中声明的函数，都会被委托在最顶层的document节点上，并用组件名和事件名来存储回调函数，<br>每次当某个组件触发事件时，在document上绑定的监听函数就会找到这个组件和他所有的父组件，<br>对每个组件创建对应的react合成事件，并批处理，从而根据事件名和组件名调用回调函数</p>
 </blockquote>
 <h4 id="关于setState"><a href="#关于setState" class="headerlink" title="关于setState"></a>关于setState</h4><ul>
@@ -394,35 +830,13 @@
 <li>setState()总是会触发一次组件重绘，除非在showComponentUpdate()中实现了一些条件条件渲染逻辑</li>
 <li>把setState()看做是重新render的一次请求而不是立即更新组件的指令</li>
 </ul>
-<p>Q:调用this.setState()后什么时候this.state才会更新？<br>A:即将要执行下一次的render函数时</p>
-<h4 id="组件的生命周期"><a href="#组件的生命周期" class="headerlink" title="组件的生命周期"></a>组件的生命周期</h4><p>为了更清楚明了的查看组件的生命周期，在每一个生命周期中添加改生命周期的名称<br>发现<br>初次调用时 </p>
-<ul>
-<li>father was created</li>
-<li>father componentWillMount</li>
-<li>render father</li>
-<li>child was created</li>
-<li>child compoentWillMount</li>
-<li>render Child</li>
-<li>Child componentDidMount</li>
-<li>Father componentWillUnmount</li>
-</ul>
-<p>调用父组件的setState后</p>
-<ul>
-<li>Father shouldCompoentUpdate</li>
-<li>Father compoentWillpdate</li>
-<li>Father render</li>
-<li>Child componentWillReceiveProps</li>
-<li>Child shouldComponentUpdate</li>
-<li>Child componentWillUpdate</li>
-<li>render Child </li>
-<li>Child ComponentDidUpdate</li>
-<li>Father CompoentDidUpdate</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">class Child extends React.Component &#123;</span><br><span class="line">  constructor() &#123;</span><br><span class="line">    super()</span><br><span class="line">    console.log(&apos;Child was created!&apos;)</span><br><span class="line">  &#125;</span><br><span class="line">  componentWillMount()&#123;</span><br><span class="line">    console.log(&apos;Child componentWillMount!&apos;)</span><br><span class="line">  &#125;</span><br><span class="line">  componentDidMount()&#123;</span><br><span class="line">    console.log(&apos;Child componentDidMount!&apos;)</span><br><span class="line">  &#125;</span><br><span class="line">  componentWillReceiveProps(nextProps)&#123;</span><br><span class="line">    console.log(&apos;Child componentWillReceiveProps:&apos;+nextProps.data )</span><br><span class="line">  &#125;</span><br><span class="line">  shouldComponentUpdate(nextProps, nextState)&#123;</span><br><span class="line">    console.log(&apos;Child shouldComponentUpdate:&apos;+ nextProps.data)</span><br><span class="line">    return true</span><br><span class="line">  &#125;</span><br><span class="line">  componentWillUpdate(nextProps, nextState)&#123;</span><br><span class="line">    console.log(&apos;Child componentWillUpdate:&apos;+ nextProps.data)</span><br><span class="line">  &#125;</span><br><span class="line">  componentDidUpdate()&#123;</span><br><span class="line">    console.log(&apos;Child componentDidUpdate&apos;)</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    console.log(&apos;render Child!&apos;)</span><br><span class="line">    return (      </span><br><span class="line">      &lt;h1&gt;Child recieve props: &#123;this.props.data&#125;&lt;/h1&gt;      </span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Father extends React.Component &#123;</span><br><span class="line">  // ... 前面跟子组件一样</span><br><span class="line">  handleChangeState()&#123;</span><br><span class="line">    this.setState(&#123;randomData: Math.floor(Math.random()*50)&#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    console.log(&apos;render Father!&apos;)</span><br><span class="line">    return (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;Child data=&#123;this.state.randomData&#125; /&gt;</span><br><span class="line">        &lt;h1&gt;Father State: &#123; this.state.randomData&#125;&lt;/h1&gt;      </span><br><span class="line">        &lt;button onClick=&#123;this.handleChangeState&#125;&gt;切换状态&lt;/button&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">React.render(</span><br><span class="line">  &lt;Father /&gt;,</span><br><span class="line">  document.getElementById(&apos;root&apos;)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fnxb3le7zxj317218ck3n.jpg" alt="react时间周期"></p>
-<p><a href="https://www.jianshu.com/p/12daf3731f9e" target="_blank" rel="noopener">组件生命周期 参考</a></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/28/react浅析/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1386,467 +1800,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://longlongma.github.io/2017/12/15/github-hexo搭建博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="安哥拉">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="天道酬勤">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/15/github-hexo搭建博客/" itemprop="url">github+hexo搭建博客</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-15T17:04:50+08:00">
-                2017-12-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/github/" itemprop="url" rel="index">
-                    <span itemprop="name">github</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/12/15/github-hexo搭建博客/" class="leancloud_visitors" data-flag-title="github+hexo搭建博客">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new &quot;page&quot;——新建文章</span><br><span class="line">$ hexo clean ——清空缓存（db.json）和已生成的静态文件（public）</span><br><span class="line">$ hexo generate —— 生成静态文件</span><br><span class="line">$ hexo deploy —— 重新部署到服务器</span><br></pre></td></tr></table></figure>
-<h3 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h3><p>你可以到<a href="https://hexo.io/themes/" target="_blank" rel="noopener">Hexo官网主题页</a>去搜寻自己喜欢的theme。这里以<a href="http://theme-next.iissnan.com" target="_blank" rel="noopener">hexo-theme-next</a>为例<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/15/github-hexo搭建博客/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://longlongma.github.io/2017/12/15/webpack/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="安哥拉">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="天道酬勤">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/15/webpack/" itemprop="url">webpack</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-15T16:12:11+08:00">
-                2017-12-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/12/15/webpack/" class="leancloud_visitors" data-flag-title="webpack">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>问题：<br>1、webpack用途<br>2、如何配置使用<br>3、注意事项</p>
-<p>先看一个常见的webpack配置文件<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/15/webpack/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://longlongma.github.io/2017/11/12/解构函数/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="安哥拉">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="天道酬勤">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/12/解构函数/" itemprop="url">解构函数</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-12T10:55:07+08:00">
-                2017-11-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">javaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/11/12/解构函数/" class="leancloud_visitors" data-flag-title="解构函数">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>当你排除了所有可能性，还剩下一个时，不管有多么的不可能，那就是真相。—— 亚瑟·柯南·道尔 《福尔摩斯全集》</p>
-</blockquote>
-<ul>
-<li><p>Syntax 句法</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var a,b,rest;</span><br><span class="line">[a,b]=[10,20];</span><br><span class="line">console.log(a); //10</span><br><span class="line">console.log(b); //20</span><br><span class="line"></span><br><span class="line">[a,b,...rest] = [10,20,30,40,50];</span><br><span class="line">console.log(a); //10</span><br><span class="line">console.log(b); //20</span><br><span class="line">console.log(rest);  //[30,40,50]</span><br><span class="line"></span><br><span class="line">(&#123;a,b&#125; = &#123;a:10,b:20&#125;);</span><br><span class="line">console.log(a); //10</span><br><span class="line">console.log(b); //20</span><br><span class="line"></span><br><span class="line">(&#123;a,b,...rest&#125;=&#123;a:10,b:20,c:30,d:40&#125;);</span><br><span class="line">console.log(a); //10</span><br><span class="line">console.log(b); //20</span><br><span class="line">console.log(..rest); //&#123;c:30,d:40&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/12/解构函数/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1896,7 +1854,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1918,7 +1876,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

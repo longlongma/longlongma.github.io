@@ -88,7 +88,7 @@
 <meta property="og:description" content="Change is the only proof of life. —— Evelyn Waugh 《Brideshead Revisited》所有在JSX中声明的函数，都会被委托在最顶层的document节点上，并用组件名和事件名来存储回调函数，每次当某个组件触发事件时，在document上绑定的监听函数就会找到这个组件和他所有的父组件，对每个组件创建对应的react合成事件，并批处理，从而根">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fnxb3le7zxj317218ck3n.jpg">
-<meta property="og:updated_time" content="2018-01-29T03:47:22.000Z">
+<meta property="og:updated_time" content="2018-01-31T02:22:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react浅析">
 <meta name="twitter:description" content="Change is the only proof of life. —— Evelyn Waugh 《Brideshead Revisited》所有在JSX中声明的函数，都会被委托在最顶层的document节点上，并用组件名和事件名来存储回调函数，每次当某个组件触发事件时，在document上绑定的监听函数就会找到这个组件和他所有的父组件，对每个组件创建对应的react合成事件，并批处理，从而根">
@@ -396,6 +396,7 @@
 <li>setState()总是会触发一次组件重绘，除非在showComponentUpdate()中实现了一些条件条件渲染逻辑</li>
 <li>把setState()看做是重新render的一次请求而不是立即更新组件的指令</li>
 </ul>
+<a id="more"></a>
 <p>Q:调用this.setState()后什么时候this.state才会更新？<br>A:即将要执行下一次的render函数时</p>
 <h4 id="组件的生命周期"><a href="#组件的生命周期" class="headerlink" title="组件的生命周期"></a>组件的生命周期</h4><p>为了更清楚明了的查看组件的生命周期，在每一个生命周期中添加改生命周期的名称<br>发现<br>初次调用时 </p>
 <ul>
@@ -462,6 +463,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/29/重新认识js/" rel="prev" title="重新认识js">
+                重新认识js <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -542,7 +547,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -564,7 +569,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

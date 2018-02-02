@@ -4,8 +4,82 @@
 
     
   <url>
+    <loc>https://longlongma.github.io/2018/01/29/%E9%87%8D%E6%96%B0%E8%AE%A4%E8%AF%86js/</loc>
+    <lastmod>2018-02-02T07:20:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>重新认识js</title>
+        <pubTime>2018-01-29T10:56:47.000Z</pubTime>
+        
+        <tag>javaScript</tag>
+         
+         
+           
+             
+              <breadCrumb title="读书笔记" url="https://longlongma.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://longlongma.github.io/2018/02/02/%E6%97%B6%E9%97%B4%E6%88%B3/</loc>
+    <lastmod>2018-02-02T04:49:52.000Z</lastmod>
+    <data>
+        <display>
+        <title>时间戳</title>
+        <pubTime>2018-02-02T02:51:40.000Z</pubTime>
+        
+        <tag>时间戳</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://longlongma.github.io/2018/02/01/%E5%85%B3%E4%BA%8Ehtml%E6%89%93%E5%8D%B0%E5%9C%A8A4%E7%BA%B8%E4%B8%8A%E7%9A%84%E4%B8%80%E7%82%B9%E5%B0%8Ftips/</loc>
+    <lastmod>2018-02-01T07:59:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>关于html打印在A4纸上的一点小tips</title>
+        <pubTime>2018-02-01T07:54:23.000Z</pubTime>
+        
+        <tag>打印，表格</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://longlongma.github.io/2017/11/12/%E8%A7%A3%E6%9E%84%E5%87%BD%E6%95%B0/</loc>
+    <lastmod>2018-01-31T07:37:19.983Z</lastmod>
+    <data>
+        <display>
+        <title>解构函数</title>
+        <pubTime>2017-11-12T02:55:07.000Z</pubTime>
+        
+        <tag>函数</tag>
+         
+         
+           
+             
+              <breadCrumb title="javaScript" url="https://longlongma.github.io/categories/javaScript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://longlongma.github.io/2018/01/28/react%E6%B5%85%E6%9E%90/</loc>
-    <lastmod>2018-01-29T03:47:22.000Z</lastmod>
+    <lastmod>2018-01-31T02:22:27.000Z</lastmod>
     <data>
         <display>
         <title>react浅析</title>
@@ -19,6 +93,7 @@
     </data>
     </url>
 
+    
     
   <url>
     <loc>https://longlongma.github.io/2018/01/16/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/</loc>
@@ -74,26 +149,6 @@
            
              
               <breadCrumb title="读书笔记" url="https://longlongma.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://longlongma.github.io/2017/11/12/%E8%A7%A3%E6%9E%84%E5%87%BD%E6%95%B0/</loc>
-    <lastmod>2018-01-23T08:13:56.000Z</lastmod>
-    <data>
-        <display>
-        <title>解构函数</title>
-        <pubTime>2017-11-12T02:55:07.000Z</pubTime>
-        
-        <tag>函数</tag>
-         
-         
-           
-             
-              <breadCrumb title="javaScript" url="https://longlongma.github.io/categories/javaScript/"/>
           
         </display>
     </data>
