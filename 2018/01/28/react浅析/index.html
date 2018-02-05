@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="Change is the only proof of life. —— Evelyn Waugh 《Brideshead Revisited》所有在JSX中声明的函数，都会被委托在最顶层的document节点上，并用组件名和事件名来存储回调函数，每次当某个组件触发事件时，在document上绑定的监听函数就会找到这个组件和他所有的父组件，对每个组件创建对应的react合成事件，并批处理，从而根">
+<meta name="description" content="Change is the only proof of life. —— Evelyn Waugh 《Brideshead Revisited》  所有在JSX中声明的函数，都会被委托在最顶层的document节点上，并用组件名和事件名来存储回调函数，每次当某个组件触发事件时，在document上绑定的监听函数就会找到这个组件和他所有的父组件，对每个组件创建对应的react合成事件，并批处理，从">
 <meta name="keywords" content="react">
 <meta property="og:type" content="article">
 <meta property="og:title" content="react浅析">
 <meta property="og:url" content="https://longlongma.github.io/2018/01/28/react浅析/index.html">
 <meta property="og:site_name" content="天道酬勤">
-<meta property="og:description" content="Change is the only proof of life. —— Evelyn Waugh 《Brideshead Revisited》所有在JSX中声明的函数，都会被委托在最顶层的document节点上，并用组件名和事件名来存储回调函数，每次当某个组件触发事件时，在document上绑定的监听函数就会找到这个组件和他所有的父组件，对每个组件创建对应的react合成事件，并批处理，从而根">
+<meta property="og:description" content="Change is the only proof of life. —— Evelyn Waugh 《Brideshead Revisited》  所有在JSX中声明的函数，都会被委托在最顶层的document节点上，并用组件名和事件名来存储回调函数，每次当某个组件触发事件时，在document上绑定的监听函数就会找到这个组件和他所有的父组件，对每个组件创建对应的react合成事件，并批处理，从">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fnxb3le7zxj317218ck3n.jpg">
-<meta property="og:updated_time" content="2018-02-02T07:53:34.000Z">
+<meta property="og:updated_time" content="2018-02-05T09:09:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react浅析">
-<meta name="twitter:description" content="Change is the only proof of life. —— Evelyn Waugh 《Brideshead Revisited》所有在JSX中声明的函数，都会被委托在最顶层的document节点上，并用组件名和事件名来存储回调函数，每次当某个组件触发事件时，在document上绑定的监听函数就会找到这个组件和他所有的父组件，对每个组件创建对应的react合成事件，并批处理，从而根">
+<meta name="twitter:description" content="Change is the only proof of life. —— Evelyn Waugh 《Brideshead Revisited》  所有在JSX中声明的函数，都会被委托在最顶层的document节点上，并用组件名和事件名来存储回调函数，每次当某个组件触发事件时，在document上绑定的监听函数就会找到这个组件和他所有的父组件，对每个组件创建对应的react合成事件，并批处理，从">
 <meta name="twitter:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fnxb3le7zxj317218ck3n.jpg">
 
 
@@ -388,8 +388,9 @@
 
       
         <blockquote>
-<p>Change is the only proof of life. —— Evelyn Waugh 《Brideshead Revisited》<br>所有在JSX中声明的函数，都会被委托在最顶层的document节点上，并用组件名和事件名来存储回调函数，<br>每次当某个组件触发事件时，在document上绑定的监听函数就会找到这个组件和他所有的父组件，<br>对每个组件创建对应的react合成事件，并批处理，从而根据事件名和组件名调用回调函数</p>
+<p>Change is the only proof of life. —— Evelyn Waugh 《Brideshead Revisited》</p>
 </blockquote>
+<p>所有在JSX中声明的函数，都会被委托在最顶层的document节点上，并用组件名和事件名来存储回调函数，<br>每次当某个组件触发事件时，在document上绑定的监听函数就会找到这个组件和他所有的父组件，<br>对每个组件创建对应的react合成事件，并批处理，从而根据事件名和组件名调用回调函数</p>
 <h4 id="关于setState"><a href="#关于setState" class="headerlink" title="关于setState"></a>关于setState</h4><ul>
 <li>原理：在执行this.setState()时，react并没有急着立即更新state，而是把新的state存到一个队列中。对传进去的对象进行合并，然后在统一处理，触发重新渲染过程。</li>
 <li>setState()并不会立即改变this.state,而是创建一个即将处理的state。setState()并不一定是同步的。为了提升性能React会批量执行state()和DOM渲染</li>
