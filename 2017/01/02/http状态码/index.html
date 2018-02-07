@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="1XX : 信息类，表示收到的web浏览器请求，正在进一步的处理中 2XX ：成功，表示用户请求被正确接收，理解和处理，eg：200 OK 3XX ：重定向，表示请求没有成功，客户必须采取进一步的动作 4XX : 客户端错误，表示客户端提交的请求有错误，例如：404 NOT Found，意味着请求中所引用的文档不存在 5XX ：服务器错误，表示服务器不能完成队对请求的处理">
+<meta name="description" content="1XX : 信息类，表示收到的web浏览器请求，正在进一步的处理中，表示临时响应并需要请求者继续执行操作的状态代码。 2XX ：成功，表示用户请求被正确接收，理解和处理，eg：200 OK 3XX ：重定向，表示请求没有成功，客户必须采取进一步的动作 4XX : 客户端错误，表示客户端提交的请求有错误，例如：404 NOT Found，意味着请求中所引用的文档不存在 5XX ：服务器错误，表示服">
 <meta name="keywords" content="http">
 <meta property="og:type" content="article">
 <meta property="og:title" content="http状态码">
 <meta property="og:url" content="https://longlongma.github.io/2017/01/02/http状态码/index.html">
 <meta property="og:site_name" content="天道酬勤">
-<meta property="og:description" content="1XX : 信息类，表示收到的web浏览器请求，正在进一步的处理中 2XX ：成功，表示用户请求被正确接收，理解和处理，eg：200 OK 3XX ：重定向，表示请求没有成功，客户必须采取进一步的动作 4XX : 客户端错误，表示客户端提交的请求有错误，例如：404 NOT Found，意味着请求中所引用的文档不存在 5XX ：服务器错误，表示服务器不能完成队对请求的处理">
+<meta property="og:description" content="1XX : 信息类，表示收到的web浏览器请求，正在进一步的处理中，表示临时响应并需要请求者继续执行操作的状态代码。 2XX ：成功，表示用户请求被正确接收，理解和处理，eg：200 OK 3XX ：重定向，表示请求没有成功，客户必须采取进一步的动作 4XX : 客户端错误，表示客户端提交的请求有错误，例如：404 NOT Found，意味着请求中所引用的文档不存在 5XX ：服务器错误，表示服">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-12T02:53:23.000Z">
+<meta property="og:updated_time" content="2018-02-07T10:23:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http状态码">
-<meta name="twitter:description" content="1XX : 信息类，表示收到的web浏览器请求，正在进一步的处理中 2XX ：成功，表示用户请求被正确接收，理解和处理，eg：200 OK 3XX ：重定向，表示请求没有成功，客户必须采取进一步的动作 4XX : 客户端错误，表示客户端提交的请求有错误，例如：404 NOT Found，意味着请求中所引用的文档不存在 5XX ：服务器错误，表示服务器不能完成队对请求的处理">
+<meta name="twitter:description" content="1XX : 信息类，表示收到的web浏览器请求，正在进一步的处理中，表示临时响应并需要请求者继续执行操作的状态代码。 2XX ：成功，表示用户请求被正确接收，理解和处理，eg：200 OK 3XX ：重定向，表示请求没有成功，客户必须采取进一步的动作 4XX : 客户端错误，表示客户端提交的请求有错误，例如：404 NOT Found，意味着请求中所引用的文档不存在 5XX ：服务器错误，表示服">
 
 
 
@@ -386,12 +386,22 @@
 
       
         <ul>
-<li>1XX : 信息类，表示收到的web浏览器请求，正在进一步的处理中</li>
+<li>1XX : 信息类，表示收到的web浏览器请求，正在进一步的处理中，表示临时响应并需要请求者继续执行操作的状态代码。</li>
 <li>2XX ：成功，表示用户请求被正确接收，理解和处理，eg：200 OK</li>
 <li>3XX ：重定向，表示请求没有成功，客户必须采取进一步的动作</li>
 <li>4XX : 客户端错误，表示客户端提交的请求有错误，例如：404 NOT Found，意味着请求中所引用的文档不存在</li>
-<li>5XX ：服务器错误，表示服务器不能完成队对请求的处理</li>
+<li><p>5XX ：服务器错误，表示服务器不能完成队对请求的处理</p>
+</li>
+<li><p>200 - 服务器成功返回网页，客户端请求已成功。</p>
+</li>
+<li>302 - 对象临时移动。服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来进行以后的请求。</li>
+<li>304 - 属于重定向。自上次请求后，请求的网页未修改过。服务器返回此响应时，不会返回网页内容。</li>
+<li>401 - 未授权。请求要求身份验证。对于需要登录的网页，服务器可能返回此响应。</li>
+<li>404 - 未找到。服务器找不到请求的网页。</li>
 </ul>
+<blockquote>
+<p><a href="http://blog.csdn.net/xinxin19881112/article/details/6565823" target="_blank" rel="noopener">参考文章 HTTP错误</a></p>
+</blockquote>
 
       
     </div>
@@ -506,7 +516,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -528,7 +538,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
