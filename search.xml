@@ -1,8 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[从输入url到页面加载的过程]]></title>
+    <url>%2F2018%2F03%2F21%2F%E4%BB%8E%E8%BE%93%E5%85%A5url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E7%9A%84%E8%BF%87%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[知识变得越抽象复杂，产生疯癫的危险性越大。 —— 哲学家 米歇尔·福柯 《疯癫与文明》 目标：梳理打通整个知识体系 这道题目的知识覆盖量非常之广，很适合用来梳理自己的知识体系 https://juejin.im/entry/5aa9e0936fb9a028c22a7cb2]]></content>
+      <categories>
+        <category>网络</category>
+      </categories>
+      <tags>
+        <tag>url</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[常见的一些布局]]></title>
+    <url>%2F2018%2F03%2F16%2F%E5%B8%B8%E8%A7%81%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B8%83%E5%B1%80%2F</url>
+    <content type="text"><![CDATA[悲伤有一种魔力，有时候会变成智慧。虽然不能带来快乐，却同样能带来幸福。—— 作家 赛珍珠]]></content>
+      <categories>
+        <category>css</category>
+      </categories>
+      <tags>
+        <tag>布局</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[主流浏览器的兼容性问题]]></title>
+    <url>%2F2018%2F03%2F15%2F%E4%B8%BB%E6%B5%81%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[为什么会有兼容性问题？ 市场上浏览的内核不尽相同，所以各个浏览器对网页的解析就会有一定的出入。如果我们的网页需要在主流浏览器上正常运行，就需要做好兼容 Trident内核的浏览器： IE、Maxthon、TTGecko内核：Firefox、Netcape6及以上版本Presto内核：Opera7及以上版本Webkit内核：Chrome、Safari 对浏览器的兼容性问题，一般分HTML、JS兼容、CSS兼容 HTML部分H5新标签在IE9以下的浏览器识别html5shiv： 解决ie9以下浏览器对html5新增标签的不识别，并导致CSS不起作用的问题。 respond.min: 让不支持css3 Media Query的浏览器包括IE6-IE8等其他浏览器支持查询。 由于IE6/IE7/IE8还有很大一部分用户，为了让网站浏览者都能正常的访问HTML5网站，故这两种方案还是需要的。1234567&lt;!--[if lt IE 9]&gt; &lt;script type=&quot;text/javascript&quot; src=&quot;js/html5shiv.js&quot;&gt;&lt;/script&gt;或者&lt;script src=&quot;https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js&quot;&gt;&lt;/script&gt; &lt;script src=&quot;https://oss.maxcdn.com/respond/1.4.2/respond.min.js&quot;&gt;&lt;/script&gt; &lt;![endif]--&gt; ul标签在IE重点额内外边距问题 ul标签在IE6\IE7中，有个默认的外边距，但是在IE8以上及其他浏览器中有个默认的内边距。 解决方法：统一设置ul的内外边距为0 CSS样式 不同浏览器的标签默认的外补丁和内补丁不同问题症状：随便写几个标签，不加样式控制的情况下，各自的margin 和padding差异较大。碰到频率:100%解决方案：css里 {margin:0;padding:0;}备注：这个是最常见的也是最易解决的一个浏览器兼容性问题，几乎所有的css文件开头都会用通配符来设置各个标签的内外补丁是0。 由此引出一个reset的问题,根据需要选取123456789101112131415html&#123;color:#000;&#125;body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td&#123;margin:0;padding:0;&#125;table&#123;border-collapse:collapse;border-spacing:0;&#125;fieldset,img&#123;border:0;&#125;address,caption,cite,code,dfn,em,strong,th,var&#123;font-style:normal;font-weight:normal;&#125;li&#123;list-style:none;&#125;caption,th&#123;text-align:left;&#125;h1,h2,h3,h4,h5,h6&#123;font-size:100%;font-weight:normal;&#125;q:before,q:after&#123;content:&apos;&apos;;&#125;abbr,acronym&#123;border:0;font-variant:normal;&#125;sup&#123;vertical-align:text-top;&#125;sub&#123;vertical-align:text-bottom;&#125;input,textarea,select&#123;font-family:inherit;font-size:inherit;font-weight:inherit;&#125;input,textarea,select&#123;*font-size:100%;&#125;legend&#123;color:#000;&#125; 图片默认有间距问题症状：几个img标签放在一起的时候，有些浏览器会有默认的间距，加上问题一中提到的通配符也不起作用。碰到几率：20%解决方案：使用float属性为img布局备注：因为img标签是行内属性标签，所以只要不超出容器宽度，img标签都会排在一行里，但是部分浏览器的img标签之间会有个间距。去掉这个间距使用float是正道 min-height的兼容写法 123456.divbox&#123; min-height:200px; height:auto !important; height:200px; overflow:visible;&#125; JS兼容性 标准的事件绑定方法函数为addEventListener，但IE下是attachEvent； 事件的捕获方式不一致，标准浏览器是由外至内，而IE是由内到外，但是最后的结果是将IE的标准定为标准 window.event获取的。并且获取目标元素的方法也不同，标准浏览器是event.target，而IE下是event.srcElementIE下，even不存在target属性 1srcObj = event.srcElement ? event.srcElement : event.target; 在低版本的IE中获取的日期处理函数的值不是与1900的差值，但是在高版本的IE中和标准浏览器保持了一致，获取的值也是与1900的差值。比如：var year= new Date().getYear(); ajax的实现方式不同，这个我所理解的是获取XMLHttpRequest的不同，IE下是activeXObject IE中不能操作tr的innerHtml7.获得DOM节点的父节点、子节点的方式不同其他浏览器：parentNode parentNode.childNodesIE：parentElement parentElement.children event.srcElement脚本兼容无外乎浏览器支不支持哪个属性或者，哪个方法，因此绝大部分的脚本兼容性问题都是用if else来解决~]]></content>
+      <categories>
+        <category>浏览器</category>
+      </categories>
+      <tags>
+        <tag>浏览器</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[常见浏览器的特点和限制]]></title>
-    <url>%2F2018%2F03%2F15%2F%E5%B8%B8%E8%A7%81%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E7%89%B9%E7%82%B9%E5%92%8C%E9%99%90%E5%88%B6%2F</url>
+    <url>%2F2018%2F02%2F15%2F%E5%B8%B8%E8%A7%81%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E7%89%B9%E7%82%B9%E5%92%8C%E9%99%90%E5%88%B6%2F</url>
     <content type="text"><![CDATA[她那时候还太年轻，不知道所有命运赠送的礼物，早已经在暗中标好了价格。 ——《断头王后》斯蒂芬·茨威格 各种浏览器的特性 IE : trident内核，非开源。兼容性好。银行只支持IE。 Chrome ： webkit内核，开源。启动快，速度快，不过需要大内存才能使用流畅。 Firefox ： gekco内核，开源。扩展性强。插件定制方便。 Opera ： presto内核，开源。快速。 猎豹：采用Triden和Webkit双核。 360安全浏览器 ： 主要使用了IE的内核并增加了很多安全和使用模块。 360极速浏览器 : 主要是使用了Chrome和IE双内核，并能自由切换，比较快。 各种浏览器的优缺点Chrome由Google开发的一款设计简单、高效的web浏览器。特点是简洁、快速。 优点 多进程框架，保护浏览器不会因恶意网页和应用软件和奔溃。 速度快。使用Webkit引擎，简易小巧，并能有效的运用存储器 网络钓鱼以及恶意软件的侦测功能。Chrome会定期的更新防止网络钓鱼和恶意软件的黑名单，并在用户试图浏览可能造成电脑损害的网站时予以警告。浏览器会将造访网址的一部分传送给Google，以了解该网址是否在诈骗与恶意网站清单中。 能容许多个程序同时运行而互不影响，每个网页标签独立于窗口程序存在，当资源过高或者崩溃时，不会因为一个停顿而整个程序当掉。 定期检查更新，确保更新永远为最新版本 无比简洁，Chrome简洁的界面，令我爱不释手 缺点 内存、CPU占用最大！ 至少奔腾双核、1.5G内存以上用起来体验感才比较好，不然只能用作浏览网页，如果配置比较低，同时开着很多其他的应用，肯定会卡。 多标签浏览模式下每打开一个标签就会有一个chrome.exe文件生成 IE内核的浏览器（360、搜狗、世界之窗、遨游、TT、绿色浏览器）优点 兼容性好。 缺点 内存、CPU占用最大，易崩溃，不是一般的慢。拦截广告的功能极差 漏洞最多，几乎所有的浏览器攻击病毒都是针对IE的，所以IE最容易被攻击 FirefoxFirefox9 新增了类型推断（Type Inference），再次大幅度提高了JS引擎的渲染速度，使得很多富含图片、视频、游戏以及网络应用可以更快的加载和运行。在速度上提高了30%。 优点 速度快 、插件多 缺点 媒体功能不强。 组件装多了会很臃肿，启动比较慢 Opera浏览器优点 速度快，仅次于Chrome CPU占用率的控制是所有浏览器里面最好的，尤其是打开几十个标签的时候 Opera永远不会假死 内存占用小。]]></content>
       <categories>
         <category>浏览器</category>
@@ -80,6 +113,12 @@
     <title><![CDATA[TCP三次握手四次挥手]]></title>
     <url>%2F2018%2F01%2F07%2FTCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%2F</url>
     <content type="text"><![CDATA[生命只是一连串孤立的片刻 TCP三次握手目的是“为了防止已失效的连接请求报文段突然又传送到了服务端，因而产生错误” 三次是保证双方互相明确对方能收能发的最低值。 第一次握手客户端像服务端发送连接请求报文段。在该报文的头部中 SYN = 1，ACK = 0, seq=x。请求发送后，客户端便进入SYN-SENT状态。 PS1：SYN=1，ACK=0表示该报文段为连接请求报文 PS2：x为本次TCP通信的字节流的初始序号。 TCP规定：SYN=1的报文段不能有数据部分，但要消耗掉一个序号。 第二次握手服务端收到连接请求报文段后，如果同意连接，则会发送一个应答：SYN=1，ACK=1，seq=y，ack=x+1。该应答发送完成后便进入SYN-RCVD状态。 PS1：SYN=1，ACK=1表示该报文段为连接同意的应答报文。 PS2：seq=y表示服务端作为发送者时，发送字节流的初始序号 PS3：ack=x+1表示服务端希望下一个数据报发送序号从x+1开始的字节。 第三次握手当客户端收到连接同意的应答后，还要向服务端发送一个确认报文段，表示：服务端发来的连接同意应答已经成功收到。该报文段的头部为：ACK=1，seq=x+1，ack=y+1。 四次挥手前两次挥手用于断开一个方向的连接，后两次挥手用于断开另一方向的连接。 第一次挥手若A认为数据发送完成，则它需要向B发送连接释放请求。该请求只有报文头，头中携带的主要参数为：FIN=1，seq=u。此时，A将进入FIN-WAIT-1状态。 PS1：FIN=1表示该报文段是一个连接释放请求。 PS2：seq=u，u-1是A向B发送的最后一个字节的序号。 第二次挥手B收到连接释放请求后，会通知相应的应用程序，告诉它A向B这个方向的连接已经释放。此时B进入CLOSE-WAIT状态，并向A发送连接释放的应答，其报文头包含：ACK=1，seq=v，ack=u+1。 PS1：ACK=1：除TCP连接请求报文段以外，TCP通信过程中所有数据报的ACK都为1，表示应答。 PS2：seq=v，v-1是B向A发送的最后一个字节的序号。 PS3：ack=u+1表示希望收到从第u+1个字节开始的报文段，并且已经成功接收了前u个字节。 A收到该应答，进入FIN-WAIT-2状态，等待B发送连接释放请求。第二次挥手完成后，A到B方向的连接已经释放，B不会再接收数据，A也不会再发送数据。但B到A方向的连接仍然存在，B可以继续向A发送数据。 第三次挥手当B向A发完所有数据后，向A发送连接释放请求，请求头：FIN=1，ACK=1，seq=w，ack=u+1。B便进入LAST-ACK状态。 第四次挥手A收到释放请求后，向B发送确认应答，此时A进入TIME-WAIT状态。该状态会持续2MSL时间，若该时间段内没有B的重发请求的话，就进入CLOSED状态，撤销TCB。当B收到确认应答后，也便进入CLOSED状态，撤销TCB。 为什么A要先进入TIME-WAIT状态，等待2MSL时间后才进入CLOSED状态？ 为了保证B能收到A的确认应答。 若A发完确认应答后直接进入CLOSED状态，那么如果该应答丢失，B等待超时后就会重新发送连接释放请求，但此时A已经关闭了，不会作出任何响应，因此B永远无法正常关闭。 作者：大闲人柴毛毛链接：https://www.zhihu.com/question/24853633/answer/254224088来源：知乎著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。]]></content>
+      <categories>
+        <category>网络</category>
+      </categories>
+      <tags>
+        <tag>TCP</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[箭头函数]]></title>
@@ -173,7 +212,7 @@
   <entry>
     <title><![CDATA[正则表达式-小笔记]]></title>
     <url>%2F2017%2F06%2F12%2F%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%2F</url>
-    <content type="text"><![CDATA[正则表达式（regular expression）描述了一种字符串匹配的模式，可以用来检查一个串是否含有某种子串、将匹配的子串替换或者从某个串中取出符合某个条件的子串 +表示前面的字符至少出现一次 run00+b,可以匹配run00b、run0000000b *表示前面的字符至少出现0次 run00*b,可以匹配run0b、run0000b ?表示前面的字符最多只出现一次 colou?r可以匹配color或者colour]]></content>
+    <content type="text"><![CDATA[正则表达式（regular expression）描述了一种字符串匹配的模式，可以用来检查一个串是否含有某种子串、将匹配的子串替换或者从某个串中取出符合某个条件的子串 数字添加逗号完成函数 commafy，它接受一个数字作为参数，返回一个字符串，可以把整数部分从右到左每三位数添加一个逗号，如：12000000.11 转化为 12,000,000.11。 12 正则 +表示前面的字符至少出现一次 run00+b,可以匹配run00b、run0000000b *表示前面的字符至少出现0次 run00*b,可以匹配run0b、run0000b ?表示前面的字符最多只出现一次 colou?r可以匹配color或者colour]]></content>
       <tags>
         <tag>正则</tag>
       </tags>

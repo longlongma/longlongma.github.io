@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="正则表达式（regular expression）描述了一种字符串匹配的模式，可以用来检查一个串是否含有某种子串、将匹配的子串替换或者从某个串中取出符合某个条件的子串  +表示前面的字符至少出现一次  run00+b,可以匹配run00b、run0000000b *表示前面的字符至少出现0次  run00*b,可以匹配run0b、run0000b ?表示前面的字符最多只出现一次  colou?r可">
+<meta name="description" content="正则表达式（regular expression）描述了一种字符串匹配的模式，可以用来检查一个串是否含有某种子串、将匹配的子串替换或者从某个串中取出符合某个条件的子串 数字添加逗号完成函数 commafy，它接受一个数字作为参数，返回一个字符串，可以把整数部分从右到左每三位数添加一个逗号，如：12000000.11 转化为 12,000,000.11。">
 <meta name="keywords" content="正则">
 <meta property="og:type" content="article">
 <meta property="og:title" content="正则表达式-小笔记">
 <meta property="og:url" content="https://longlongma.github.io/2017/06/12/正则表达式/index.html">
 <meta property="og:site_name" content="天道酬勤">
-<meta property="og:description" content="正则表达式（regular expression）描述了一种字符串匹配的模式，可以用来检查一个串是否含有某种子串、将匹配的子串替换或者从某个串中取出符合某个条件的子串  +表示前面的字符至少出现一次  run00+b,可以匹配run00b、run0000000b *表示前面的字符至少出现0次  run00*b,可以匹配run0b、run0000b ?表示前面的字符最多只出现一次  colou?r可">
+<meta property="og:description" content="正则表达式（regular expression）描述了一种字符串匹配的模式，可以用来检查一个串是否含有某种子串、将匹配的子串替换或者从某个串中取出符合某个条件的子串 数字添加逗号完成函数 commafy，它接受一个数字作为参数，返回一个字符串，可以把整数部分从右到左每三位数添加一个逗号，如：12000000.11 转化为 12,000,000.11。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-12T02:57:39.000Z">
+<meta property="og:updated_time" content="2018-03-15T09:52:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式-小笔记">
-<meta name="twitter:description" content="正则表达式（regular expression）描述了一种字符串匹配的模式，可以用来检查一个串是否含有某种子串、将匹配的子串替换或者从某个串中取出符合某个条件的子串  +表示前面的字符至少出现一次  run00+b,可以匹配run00b、run0000000b *表示前面的字符至少出现0次  run00*b,可以匹配run0b、run0000b ?表示前面的字符最多只出现一次  colou?r可">
+<meta name="twitter:description" content="正则表达式（regular expression）描述了一种字符串匹配的模式，可以用来检查一个串是否含有某种子串、将匹配的子串替换或者从某个串中取出符合某个条件的子串 数字添加逗号完成函数 commafy，它接受一个数字作为参数，返回一个字符串，可以把整数部分从右到左每三位数添加一个逗号，如：12000000.11 转化为 12,000,000.11。">
 
 
 
@@ -386,11 +386,14 @@
 
       
         <p>正则表达式（regular expression）描述了一种字符串匹配的模式，可以用来检查一个串是否含有某种子串、将匹配的子串替换或者从某个串中取出符合某个条件的子串</p>
+<h3 id="数字添加逗号"><a href="#数字添加逗号" class="headerlink" title="数字添加逗号"></a>数字添加逗号</h3><p>完成函数 commafy，它接受一个数字作为参数，返回一个字符串，可以把整数部分从右到左每三位数添加一个逗号，如：12000000.11 转化为 12,000,000.11。</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>正则</p>
 <ul>
 <li><code>+</code>表示前面的字符至少出现一次<br>  <code>run00+b</code>,可以匹配<code>run00b</code>、<code>run0000000b</code></li>
 <li><code>*</code>表示前面的字符至少出现0次<br>  <code>run00*b</code>,可以匹配<code>run0b</code>、<code>run0000b</code></li>
-<li><p><code>?</code>表示前面的字符最多只出现一次<br>  <code>colou?r</code>可以匹配<code>color</code>或者<code>colour</code></p>
-  <!-- 待续 --></li>
+<li><code>?</code>表示前面的字符最多只出现一次<br>  <code>colou?r</code>可以匹配<code>color</code>或者<code>colour</code></li>
 </ul>
 
       
@@ -486,8 +489,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -506,7 +518,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -517,7 +529,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -528,7 +540,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -561,6 +573,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#数字添加逗号"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x6570;&#x5B57;&#x6DFB;&#x52A0;&#x9017;&#x53F7;" class="headerlink" title="&#x6570;&#x5B57;&#x6DFB;&#x52A0;&#x9017;&#x53F7;"></a>&#x6570;&#x5B57;&#x6DFB;&#x52A0;&#x9017;&#x53F7;</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
