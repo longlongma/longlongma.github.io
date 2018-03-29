@@ -2,23 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://longlongma.github.io/htmls/react-2048.html</loc>
+    
+    <lastmod>2018-03-29T02:34:32.063Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://longlongma.github.io/htmls/index.html</loc>
     
     <lastmod>2018-03-29T02:32:38.572Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://longlongma.github.io/htmls/react-2048/test.html</loc>
-    
-    <lastmod>2018-03-29T02:30:06.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://longlongma.github.io/htmls/react-2048/index.html</loc>
-    
-    <lastmod>2018-03-29T02:29:04.976Z</lastmod>
     
   </url>
   
